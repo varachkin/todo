@@ -1,0 +1,71 @@
+.task_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    border-radius: 7px;
+    padding: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.47);
+    text-align: justify;
+    position: relative;
+}
+
+.task_block button {
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.undone {
+    background-color: #ffb41a;
+}
+
+.undone .btn {
+    background-color: #39b637;
+}
+
+.undone .btn:hover {
+    background-color: #30992e;
+}
+
+.undone .btn:active {
+    background-color: #20651f;
+}
+
+.done {
+    background-color: #39b637;
+}
+
+.done .btn, .failed .btn {
+    background-color: #ffb41a;
+}
+
+.done .btn:hover, .failed .btn:hover {
+    background-color: #cb8f15;
+}
+
+.done .btn:active, .failed .btn:active {
+    background-color: #855e0f;
+}
+
+.failed {
+    background-color: #ff5445;
+}
+
+.close {
+    position: absolute;
+    top: -9px;
+    left: -12px;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: rgba(255, 251, 235, 0.77);
+    text-align: center;
+    line-height: 18px;
+    border: 1px solid gray;
+}
+
+.close:hover {
+    background-color: rgba(255, 251, 235, 0.98);
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Staatliches";
+    src: url("fonts/CarterOne-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: Staatliches, sans-serif;
+    letter-spacing: 2px;
+    background-image: url("img/background.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*color: #fffbeb;*/
+    min-height: 100vh;
+}
+
+.App {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /**********/
+    /*border: 1px solid black;*/
+    /**********/
+    align-items: center;
+    min-width: 1000px;
+    max-width: 1200px;
+
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 40px 0;
+    font-size: 60px;
+}

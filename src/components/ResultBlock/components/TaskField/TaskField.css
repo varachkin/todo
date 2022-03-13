@@ -1,0 +1,45 @@
+.task_field {
+    border: 1px solid rgba(151, 151, 151, 0.51);
+    width: 30%;
+    border-radius: 7px;
+    box-shadow: 4px 4px 8px 0px rgba(141, 141, 141, 0.2);
+    min-height: 30vh;
+    background-color: rgba(255, 252, 249, 0.76);
+}
+
+h3 {
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+.list {
+    padding: 15px;
+    list-style: none;
+    margin: 0;
+}
+
+.list li {
+    border-radius: 7px;
+    margin: 10px 0;
+    max-width: 100%;
+}
+
+.list li div .btn {
+    max-width: 30%;
+}
+
+.task {
+    max-width: 66%;
+    word-break: break-all;
+}
+
+.task span {
+    display: inline-block;
+    text-align: center;
+    margin-right: 7px;
+    line-height: 22px;
+    background-color: #a70000;
+    color: #fffbeb;
+    border-radius: 10px;
+    padding: 0 5px;
+}
