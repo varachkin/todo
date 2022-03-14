@@ -8,7 +8,8 @@ class App extends Component {
         super(props);
         this.state = {
             task: '',
-            date: Date.now(),
+            currentTask: '',
+            date: new Date().toLocaleDateString(),
             hours: 0,
             currentHours: 1,
             tasks: {
@@ -21,36 +22,47 @@ class App extends Component {
         this.addTask = this.addTask.bind(this);
         this.changeHours = this.changeHours.bind(this);
         this.closeTask = this.closeTask.bind(this);
-        this.changeState = this.changeState.bind(this);
-    }
-
-    changeState(el) {
-        console.log(el);
-        this.setState({undoneTasks: 1});
-        console.log('Стэйт после убаления таски', this.state.tasks.undoneTasks);
     }
 
     closeTask(e) {
-        e.nativeEvent.path.splice(0, 2);
+        console.log(e);
+        let arrTask = this.state.tasks.undoneTasks;
+        let hours = this.state.hours;
+        arrTask = arrTask.filter(el => {
+            if (el.task.trim() !== e.target.id) {
+                return el;
+            } else {
+                hours -= el.hours;
+            }
+        });
+
+        this.setState({...this.state, tasks: {...this.state.tasks, undoneTasks: arrTask}, hours: hours});
+        console.log(this.state)
     }
 
     createTaskInput(e) {
-        this.setState({task: e.target.value});
+        this.setState({...this.state, task: e.target.value});
+
+        console.log(this.state);
     }
 
     changeHours(e) {
-        this.setState({currentHours: +e.target.value});
+        this.setState({...this.state, currentHours: +e.target.value});
     }
 
     addTask() {
-        if (this.state.task && this.state.currentHours > 0) {
-            let undoneTasks = this.state.tasks.undoneTasks.push({
+        const stateObj = {...this.state};
+        console.log(stateObj);
+        if (stateObj.task && stateObj.currentHours > 0) {
+            stateObj.tasks.undoneTasks.push({
                 task: this.state.task,
                 hours: this.state.currentHours
             });
-            this.setState({undoneTasks: undoneTasks});
             let hours = this.state.currentHours;
-            this.setState({hours: this.state.hours + hours});
+            stateObj.hours += hours;
+            stateObj.currentTask = stateObj.task;
+            stateObj.currentTask = '';
+            this.setState({...stateObj});
             console.log('Стэйт после добавления таски:', this.state)
         }
     }
@@ -59,7 +71,8 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>TODO LIST</h1>
-                <InputField handler={this.createTaskInput} handlerButton={this.addTask} handlerNum={this.changeHours}/>
+                <InputField handler={this.createTaskInput} handlerButton={this.addTask} handlerNum={this.changeHours}
+                            val={this.state.currentTask}/>
                 <ResultBlock tasks={this.state.tasks} hours={this.state.hours} handlerClose={this.closeTask}
                              changeState={this.changeState}/>
             </div>

@@ -30,7 +30,7 @@ h3 {
 
 .task {
     max-width: 66%;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .task span {

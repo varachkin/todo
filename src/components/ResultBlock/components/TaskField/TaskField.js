@@ -16,7 +16,7 @@ class TaskField extends Component {
                         return (
                             <li className={this.props.clas} key={index}>
                                 <Task tasks={el} handlerTask={this.props.handlerClose}
-                                      closeTask={this.props.closeTask}/>
+                                      closeTask={this.props.handlerClose}/>
                             </li>
                         )
                     })}
